@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Navigate } from 'react-router-dom'
+
 
 function Form({users, setUsers}) {
 
@@ -6,6 +8,8 @@ function Form({users, setUsers}) {
         name : "",
         username : ""
     })
+
+    
 
     const handleOnchange = (event)=>{
         const name = event.target.name
@@ -36,6 +40,7 @@ const handleSubmit =(e)=> {
         name : "",
         username : ""
     })
+    Navigate("/")
 }
 
   return (

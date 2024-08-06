@@ -1,25 +1,21 @@
-import React, { useEffect, useState } from 'react'
+
+import { useNavigate } from 'react-router-dom'
 import User from './User'
-import Form from './Form'
 
-function Home() {
-    const [users, setUsers] = useState([])
 
-    useEffect(() =>{
-        fetch("http://localhost:3000/users")
-        .then(res => res.json())
-        .then(users => setUsers(users))
-        .catch(error => console.log(error))
-    },[])
+function Home({users}) {
+
+  const navigate= useNavigate()
+    
 
     const displayUsers = users.map(user => <User key={user.id} user={user}/> )
   return (
     <div className='users'>
-        <Form users={users} setUsers={setUsers}/>
+      
     {displayUsers}
     </div>
     
   )
 }
 
-export default Home
+export default Home;
